@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 17:05:33 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/24 19:58:28 by hlarson           #+#    #+#             */
+/*   Updated: 2019/08/11 16:51:29 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include "libft.h"
+# define BUFF_SIZE 4000
 
-t_fdf	*init_fdf(int file_descriptor)
-{
-	t_fdf	*fdf;
+int				get_next_line(const int fd, char **line);
 
-	fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf));
-	fdf->mlx = mlx_init();
-	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
-	file_descriptor--;
-	//fdf->map = init_map(file_descriptor);
-	fdf->map = NULL;
-	return (fdf);
-}
+#endif
