@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 19:40:48 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/11 21:03:53 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ typedef struct	s_fdf
 t_fdf			*init_fdf(int file_descriptor);
 int				get_coord(char *line, t_stack **stack, t_fdf *fdf);
 void			ft_strsplit_free(char ***tmp);
+int				check_num_and_color(int z, char *c, int *color);
 
 #endif

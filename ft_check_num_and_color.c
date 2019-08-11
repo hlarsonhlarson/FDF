@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:46:18 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 19:59:50 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/11 21:05:57 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,44 @@ static int	count_num(int k)
 	return (i + sign);
 }
 
-int		ft_get_color(char *c, int i)
+static int		ft_get_num(char c)
 {
-	if (c[0] != '0' || c[1] != 'X')
+	char	*d;
+	char	*a;
+	int		i;
+
+	a = "0123456789abcdef";
+	d = "0123456789ABCDEF";
+	i = 0;
+	while (d[i])
+	{
+		if (d[i] == c || a[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+static int		ft_get_color(char *c, int i)
+{
+	int		color;
+	int		tmp;
+
+	color = 0;
+	if (c[0] != '0' || c[1] != 'x')
+		return (-1);
+	i = i + 2;
+	while (c[i])
+	{
+		tmp = ft_get_num(c[i]);
+		if (tmp < 0)
+			return (-1);
+		color = color * 16 + color;
+		i++;
+	}
+	return (color);
+}	
+
 int		check_num_and_color(int z, char *c, int *color)
 {
 	int		i;
