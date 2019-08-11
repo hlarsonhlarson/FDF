@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/04 19:34:33 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/16 17:01:25 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	t_fdf	*fdf;
-	int		k;
+	t_list	*c;
 
-	if (argc == 2)
+	c = (t_list *)malloc(sizeof(t_list));
+	if (!c)
+		return (NULL);
+	if (content == NULL)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		c->content = NULL;
+		c->content_size = 0;
 	}
-	return (0);
+	else
+	{
+		c->content = malloc(sizeof(content_size));
+		if (!c->content)
+			return (NULL);
+		ft_memcpy(c->content, content, content_size);
+		c->content_size = content_size;
+	}
+	c->next = NULL;
+	return (c);
 }

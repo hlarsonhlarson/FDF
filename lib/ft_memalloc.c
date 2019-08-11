@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 21:49:03 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/12 18:49:40 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	*ft_memalloc(size_t size)
 {
-	t_fdf	*fdf;
-	int		k;
+	void			*str;
 
-	if (argc == 2)
-	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
-	}
-	return (0);
+	str = (void *)malloc(size);
+	if (str)
+		ft_bzero(str, size);
+	else
+		return (NULL);
+	return ((void *)(str));
 }

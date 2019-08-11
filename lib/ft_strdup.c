@@ -1,28 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 19:20:01 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/06 16:50:05 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+static size_t	ft_strlen(const char *b)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t		i;
 
-	if (argc == 2)
+	i = 0;
+	while (b[i])
+		i++;
+	return (i);
+}
+
+char			*ft_strdup(const char *c)
+{
+	char		*a;
+	size_t		i;
+
+	a = (char *)malloc(sizeof(*c) * (ft_strlen(c) + 1));
+	if (!a)
+		return (NULL);
+	i = 0;
+	while (c[i])
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		a[i] = c[i];
+		i++;
 	}
-	return (0);
+	a[i] = '\0';
+	return (a);
 }

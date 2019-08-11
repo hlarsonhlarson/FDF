@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/28 20:52:05 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/06 17:41:32 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t				i;
+	unsigned char		*d;
+	unsigned char		*s;
+	unsigned char		l;
 
-	if (argc == 2)
+	i = 0;
+	l = (unsigned)c;
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	while (i != n)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		d[i] = s[i];
+		if (s[i] == l)
+			return (d + i + 1);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

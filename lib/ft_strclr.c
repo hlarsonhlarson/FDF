@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 22:16:14 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/12 18:57:49 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_strclr(char *s)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
+	if (s)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		while (*s)
+			*s++ = '\0';
 	}
-	return (0);
 }

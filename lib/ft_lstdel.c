@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/05 18:28:34 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/16 17:13:47 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_fdf	*fdf;
-	int		k;
+	t_list	*lnext;
 
-	if (argc == 2)
+	while (*alst)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		lnext = (*alst)->next;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = lnext;
 	}
-	return (0);
+	*alst = NULL;
 }

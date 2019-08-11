@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strlcat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 20:19:02 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/06 20:26:57 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+size_t		ft_strlcat(char *dest, const char *src, size_t n)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	if (argc == 2)
+	i = 0;
+	j = 0;
+	k = 0;
+	while (dest[i])
+		i++;
+	while (src[k])
+		k++;
+	if (i >= n)
+		return (n + k);
+	while (src[j] && i < (n - 1))
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		dest[i] = src[j];
+		j++;
+		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (k + (i - j));
 }

@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 21:29:37 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/10 21:16:12 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
-	if (argc == 2)
+	i = 0;
+	j = 0;
+	while (haystack[i])
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		k = i;
+		while ((haystack[i] == needle[j]) && haystack[i] && needle[j])
+		{
+			i++;
+			j++;
+		}
+		if (needle[j] == '\0')
+			return ((char *)(haystack + i - j));
+		i = k;
+		j = 0;
+		i++;
 	}
-	return (0);
+	if (haystack[i] == needle[j])
+		return ((char *)(haystack));
+	return (NULL);
 }

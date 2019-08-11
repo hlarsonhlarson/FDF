@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/05 18:42:43 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/05 20:24:45 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	t_fdf	*fdf;
-	int		k;
+	t_list	*list;
 
-	if (argc == 2)
+	if ((alst) && (new))
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		list = new;
+		list->next = *alst;
+		*alst = list;
 	}
-	return (0);
 }

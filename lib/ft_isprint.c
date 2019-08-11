@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 21:38:05 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/01 21:38:45 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-int		main(int argc, char **argv)
+int		ft_isprint(int c)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
-	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
-	}
+	if ((c >= 32) && c < 127)
+		return (1);
 	return (0);
 }

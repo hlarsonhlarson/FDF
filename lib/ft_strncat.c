@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 20:06:53 by hlarson           #+#    #+#             */
+/*   Updated: 2018/11/30 20:37:58 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t		i;
+	size_t		j;
 
-	if (argc == 2)
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while ((j != n) && src[j])
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

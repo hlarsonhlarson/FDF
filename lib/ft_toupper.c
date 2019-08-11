@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 21:39:40 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/01 21:44:32 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-int		main(int argc, char **argv)
+int		ft_toupper(int c)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
-	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
-	}
-	return (0);
+	if ((c >= 97) && (c <= 122))
+		return (c - 32);
+	return (c);
 }

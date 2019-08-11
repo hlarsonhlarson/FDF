@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 18:03:31 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/12 18:38:36 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
 
-	if (argc == 2)
-	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
-	}
-	return (0);
+	i = 0;
+	while ((s1[i] == s2[i]) && s1[i] && s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

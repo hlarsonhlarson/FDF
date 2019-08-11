@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 21:10:56 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/06 20:53:40 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
+	long	k;
 
-	if (argc == 2)
+	i = 0;
+	k = -1;
+	while (s[i])
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		if (s[i] == c)
+			k = i;
+		i++;
 	}
-	return (0);
+	if (s[i] == c)
+		k = i;
+	if (k == -1)
+		return (NULL);
+	return ((char *)(s + k));
 }

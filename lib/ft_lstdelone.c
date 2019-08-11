@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/04 20:18:24 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/05 20:28:25 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
-	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
-	}
-	return (0);
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

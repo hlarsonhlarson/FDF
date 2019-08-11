@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/01 22:14:42 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/01 22:15:36 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+void	ft_strdel(char **as)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
+	if (as && *as)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		free(*as);
+		*as = NULL;
 	}
-	return (0);
 }

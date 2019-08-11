@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/03 19:05:37 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/16 16:43:47 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
+#include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-int		main(int argc, char **argv)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
+	char	*c;
 
-	if (argc == 2)
+	i = 0;
+	c = ft_strnew(len);
+	if ((c) && (s))
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		while ((i != len) && (s[i]))
+		{
+			c[i] = s[i + start];
+			i++;
+		}
+		return (c);
 	}
-	return (0);
+	return (NULL);
 }

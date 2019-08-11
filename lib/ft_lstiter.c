@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/05 18:52:58 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/05 19:49:10 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	t_fdf	*fdf;
-	int		k;
+	t_list	*c;
 
-	if (argc == 2)
+	while (lst)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		c = lst->next;
+		f(lst);
+		lst = c;
 	}
-	return (0);
 }

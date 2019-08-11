@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/03 18:57:11 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/12 19:19:38 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
 #include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t	i;
+	char	*c;
 
-	if (argc == 2)
+	i = 0;
+	if ((s) && (f))
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		c = ft_strnew(ft_strlen(s));
+		if (c)
+		{
+			while (s[i])
+			{
+				c[i] = f(i, s[i]);
+				i++;
+			}
+			return (c);
+		}
 	}
-	return (0);
+	return (NULL);
 }

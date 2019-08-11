@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/28 18:29:34 by hlarson           #+#    #+#             */
+/*   Updated: 2018/11/30 17:59:36 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t				i;
+	unsigned char		*b;
 
-	if (argc == 2)
+	b = (unsigned char *)s;
+	i = 0;
+	while (i != n)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		b[i] = c;
+		i++;
 	}
-	return (0);
+	return (b);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/04 18:33:00 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/16 18:14:37 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+void		ft_putnbr(int n)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
+	if (n == -2147483648)
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		ft_putstr("-2147483648");
+		return ;
 	}
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar((n % 10) + '0');
 }

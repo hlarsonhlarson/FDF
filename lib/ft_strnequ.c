@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/12/03 19:03:20 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/16 18:25:04 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int		main(int argc, char **argv)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	t_fdf	*fdf;
-	int		k;
-
-	if (argc == 2)
+	if ((s1) && (s2))
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		if (n == 0)
+			return (1);
+		return (ft_strncmp(s1, s2, n) ? 0 : 1);
 	}
 	return (0);
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 16:00:29 by hlarson          ###   ########.fr       */
+/*   Created: 2018/11/30 19:41:45 by hlarson           #+#    #+#             */
+/*   Updated: 2018/12/06 16:57:57 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include <string.h>
 
-int		main(int argc, char **argv)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	t_fdf	*fdf;
-	int		k;
+	size_t		i;
 
-	if (argc == 2)
+	i = 0;
+	while (src[i])
 	{
-		k = open(argv[1], O_RDONLY);
-		fdf = init_fdf();
+		dest[i] = src[i];
+		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }
