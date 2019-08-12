@@ -6,15 +6,15 @@
 #    By: hlarson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/05 19:13:22 by hlarson           #+#    #+#              #
-#    Updated: 2019/08/11 21:04:30 by hlarson          ###   ########.fr        #
+#    Updated: 2019/08/12 14:33:43 by hlarson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRCS = main.c init.c help_init.c ft_check_num_and_color.c
+SRCS = main.c init.c help_init.c ft_check_num_and_color.c ft_exit_error.c
 
-OUT = main.o init.o help_init.o ft_check_num_and_color.o
+OUT = main.o init.o help_init.o ft_check_num_and_color.o ft_exit_error.o
 
 LIB = libft.a
 LIB_PATH = lib/
@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME):
 	make -C $(LIB_PATH)
 	make -C $(MINILIBX_PATH)
-	gcc -Wall -Wextra -Werror $(SRCS) $(LIB_PATH)$(LIB) $(MLX_ADD) -o $(NAME)
+	gcc -Wall -Wextra -Werror $(SRCS) $(LIB_PATH)$(LIB) $(MLX_ADD) -g -o $(NAME)
 
 clean:
 	@$(MAKE) -sC $(LIB_PATH) clean

@@ -51,7 +51,7 @@ void	ft_strsplit_free(char ***tmp)
 
 static int  error_exit(char **tmp)
 {
-    ft_strsplit_free(tmp);
+    ft_strsplit_free(&tmp);
     return (-1);
 }
 

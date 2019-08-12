@@ -50,7 +50,7 @@ static char		**ft_memory1(char const *s, char c, char **d)
 		k = 0;
 		if (s[i] != c)
 		{
-			while ((s[i] != c) && (s[i + 1] != '\0'))
+			while ((s[i] != c) && (s[i] != '\0'))
 			{
 				k++;
 				i++;
