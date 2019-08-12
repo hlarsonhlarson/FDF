@@ -55,7 +55,7 @@ static int		ft_get_color(char *c, int i)
 	int		tmp;
 
 	color = 0;
-	if (c[0] != '0' || c[1] != 'x')
+	if ((c[i] != '0' && c[i] != 'O') || c[i + 1] != 'x')
 		return (-1);
 	i = i + 2;
 	while (c[i])
@@ -63,7 +63,7 @@ static int		ft_get_color(char *c, int i)
 		tmp = ft_get_num(c[i]);
 		if (tmp < 0)
 			return (-1);
-		color = color * 16 + color;
+		color = color * 16 + tmp;
 		i++;
 	}
 	return (color);
