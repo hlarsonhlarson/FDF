@@ -62,6 +62,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdff.dir/help_init.c.o"
   "CMakeFiles/fdff.dir/init.c.o"
   "CMakeFiles/fdff.dir/main.c.o"
+  "CMakeFiles/fdff.dir/ft_exit_error.c.o"
   "fdff.pdb"
   "fdff"
 )

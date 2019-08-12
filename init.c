@@ -20,7 +20,7 @@ void	ft_del_stack(t_stack **stack)
 	tmp = *stack;
 	while (tmp)
 	{
-		swap = tmp->next;
+	    swap = tmp->next;
 		free(tmp);
 		tmp = swap;
 	}
@@ -70,7 +70,7 @@ t_point		**init_map(int file_descriptor, t_fdf *fdf)
 	while (get_next_line(file_descriptor, &line) > 0)
 	{
 		if (get_coord(line, &stack, fdf) == -1)
-			return (NULL);
+			return (ft_exit_coord(&stack, &line, file_descriptor));
 		fdf->height = fdf->height + 1;
 		ft_strdel(&line);
 	}
@@ -86,6 +86,10 @@ t_fdf	*init_fdf(int file_descriptor)
 	//fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
 	fdf->height = 0;
 	fdf->width = 0;
-	fdf->map = init_map(file_descriptor, fdf);
+	if ((fdf->map = init_map(file_descriptor, fdf)) == NULL)
+	{
+	    free(fdf);
+	    return (NULL);
+	}
 	return (fdf);
 }

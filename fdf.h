@@ -46,5 +46,7 @@ t_fdf			*init_fdf(int file_descriptor);
 int				get_coord(char *line, t_stack **stack, t_fdf *fdf);
 void			ft_strsplit_free(char ***tmp);
 int				check_num_and_color(int z, char *c, int *color);
+void            *ft_exit_coord(t_stack **stack, char **line, int file_descriptor);
+void            ft_del_stack(t_stack **stack);
 
 #endif

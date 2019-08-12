@@ -49,6 +49,12 @@ void	ft_strsplit_free(char ***tmp)
 	free(c);
 }
 
+static int  error_exit(char **tmp)
+{
+    ft_strsplit_free(tmp);
+    return (-1);
+}
+
 int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
 {
 	char	**tmp;
@@ -60,9 +66,11 @@ int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
 	tmp = ft_strsplit(line, ' ');
 	while (tmp[i])
 	{
+	    if (tmp[i][0] == '\0')
+	        break ;
 		z = ft_atoi(tmp[i]);
 		if (check_num_and_color(z, tmp[i], &color) == -1)
-			return (-1);
+			return (error_exit(tmp));
 		add_stack(stack, z, color);
 		i++;
 	}

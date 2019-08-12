@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/hlarson/fdff/ft_check_num_and_color.c" "/Users/hlarson/fdff/cmake-build-debug/CMakeFiles/fdff.dir/ft_check_num_and_color.c.o"
+  "/Users/hlarson/fdff/ft_exit_error.c" "/Users/hlarson/fdff/cmake-build-debug/CMakeFiles/fdff.dir/ft_exit_error.c.o"
   "/Users/hlarson/fdff/help_init.c" "/Users/hlarson/fdff/cmake-build-debug/CMakeFiles/fdff.dir/help_init.c.o"
   "/Users/hlarson/fdff/init.c" "/Users/hlarson/fdff/cmake-build-debug/CMakeFiles/fdff.dir/init.c.o"
   "/Users/hlarson/fdff/lib/ft_atoi.c" "/Users/hlarson/fdff/cmake-build-debug/CMakeFiles/fdff.dir/lib/ft_atoi.c.o"

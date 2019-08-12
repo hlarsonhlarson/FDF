@@ -60,7 +60,7 @@ static char		**ft_memory1(char const *s, char c, char **d)
 		}
 		i++;
 	}
-	d[j] = ft_strnew(0);
+	d[j] = NULL;
 	return (d);
 }
 

@@ -73,4 +73,5 @@ add_executable(fdff
         ft_check_num_and_color.c
         help_init.c
         init.c
-        main.c)
+        main.c
+        ft_exit_error.c)

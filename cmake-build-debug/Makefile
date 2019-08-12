@@ -150,6 +150,33 @@ ft_check_num_and_color.c.s:
 	$(MAKE) -f CMakeFiles/fdff.dir/build.make CMakeFiles/fdff.dir/ft_check_num_and_color.c.s
 .PHONY : ft_check_num_and_color.c.s
 
+ft_exit_error.o: ft_exit_error.c.o
+
+.PHONY : ft_exit_error.o
+
+# target to build an object file
+ft_exit_error.c.o:
+	$(MAKE) -f CMakeFiles/fdff.dir/build.make CMakeFiles/fdff.dir/ft_exit_error.c.o
+.PHONY : ft_exit_error.c.o
+
+ft_exit_error.i: ft_exit_error.c.i
+
+.PHONY : ft_exit_error.i
+
+# target to preprocess a source file
+ft_exit_error.c.i:
+	$(MAKE) -f CMakeFiles/fdff.dir/build.make CMakeFiles/fdff.dir/ft_exit_error.c.i
+.PHONY : ft_exit_error.c.i
+
+ft_exit_error.s: ft_exit_error.c.s
+
+.PHONY : ft_exit_error.s
+
+# target to generate assembly for a file
+ft_exit_error.c.s:
+	$(MAKE) -f CMakeFiles/fdff.dir/build.make CMakeFiles/fdff.dir/ft_exit_error.c.s
+.PHONY : ft_exit_error.c.s
+
 help_init.o: help_init.c.o
 
 .PHONY : help_init.o
@@ -1836,6 +1863,9 @@ help:
 	@echo "... ft_check_num_and_color.o"
 	@echo "... ft_check_num_and_color.i"
 	@echo "... ft_check_num_and_color.s"
+	@echo "... ft_exit_error.o"
+	@echo "... ft_exit_error.i"
+	@echo "... ft_exit_error.s"
 	@echo "... help_init.o"
 	@echo "... help_init.i"
 	@echo "... help_init.s"

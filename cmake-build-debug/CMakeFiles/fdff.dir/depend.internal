@@ -6,6 +6,11 @@ CMakeFiles/fdff.dir/ft_check_num_and_color.c.o
  /Users/hlarson/fdff/ft_check_num_and_color.c
  /Users/hlarson/fdff/lib/get_next_line.h
  /Users/hlarson/fdff/lib/libft.h
+CMakeFiles/fdff.dir/ft_exit_error.c.o
+ /Users/hlarson/fdff/fdf.h
+ /Users/hlarson/fdff/ft_exit_error.c
+ /Users/hlarson/fdff/lib/get_next_line.h
+ /Users/hlarson/fdff/lib/libft.h
 CMakeFiles/fdff.dir/help_init.c.o
  /Users/hlarson/fdff/fdf.h
  /Users/hlarson/fdff/help_init.c

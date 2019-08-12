@@ -92,6 +92,9 @@
 		<Unit filename="/Users/hlarson/fdff/ft_check_num_and_color.c">
 			<Option target="fdff"/>
 		</Unit>
+		<Unit filename="/Users/hlarson/fdff/ft_exit_error.c">
+			<Option target="fdff"/>
+		</Unit>
 		<Unit filename="/Users/hlarson/fdff/help_init.c">
 			<Option target="fdff"/>
 		</Unit>
