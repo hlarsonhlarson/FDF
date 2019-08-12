@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 12:50:59 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 14:45:16 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ t_point		**init_map(int file_descriptor, t_fdf *fdf)
 		fdf->height = fdf->height + 1;
 		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	return (create_map(&stack, fdf));
 }
 
@@ -81,9 +82,9 @@ t_fdf	*init_fdf(int file_descriptor)
 {
 	t_fdf	*fdf;
 
-	fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf));
-	//fdf->mlx = mlx_init();
-	//fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
+	fdf = (t_fdf *)malloc(sizeof(t_fdf));
+	fdf->mlx = mlx_init();
+	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
 	fdf->height = 0;
 	fdf->width = 0;
 	if ((fdf->map = init_map(file_descriptor, fdf)) == NULL)

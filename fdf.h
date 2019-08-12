@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 12:42:33 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 14:40:40 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 # include "lib/libft.h"
 # include "lib/get_next_line.h"
+# include "minilibx_macos/mlx.h"
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
