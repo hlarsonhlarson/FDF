@@ -66,10 +66,7 @@ t_point		**init_map(int file_descriptor, t_fdf *fdf)
 	t_stack	*stack;
 
 	line = NULL;
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->z = 0;
-	stack->color = 0;
-	stack->next = NULL;
+	stack = NULL;
 	while (get_next_line(file_descriptor, &line) > 0)
 	{
 		if (get_coord(line, &stack, fdf) == -1)

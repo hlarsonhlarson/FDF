@@ -15,7 +15,7 @@
 static void	add_stack(t_stack **stack, int z, int color)
 {
 	t_stack *tmp;
-	
+
 	tmp = *stack;
 	if (tmp == NULL)
 	{
