@@ -66,8 +66,6 @@ int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
 	tmp = ft_strsplit(line, ' ');
 	while (tmp[i])
 	{
-	    if (tmp[i][0] == '\0')
-	        break ;
 		z = ft_atoi(tmp[i]);
 		if (check_num_and_color(z, tmp[i], &color) == -1)
 			return (error_exit(tmp));

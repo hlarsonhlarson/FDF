@@ -6,21 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/hlarson/fdff/fdf.h
-lib/libft.h
+/Users/hlarson/fdff/lib/ft_strsplit.c
+libft.h
 /Users/hlarson/fdff/lib/libft.h
-lib/get_next_line.h
-/Users/hlarson/fdff/lib/get_next_line.h
-fcntl.h
--
 stdlib.h
 -
-stdio.h
--
-
-/Users/hlarson/fdff/ft_exit_error.c
-fdf.h
-/Users/hlarson/fdff/fdf.h
 
 /Users/hlarson/fdff/lib/get_next_line.h
 libft.h
