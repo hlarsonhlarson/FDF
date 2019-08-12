@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 19:40:18 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 12:50:59 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 
 	i = 0;
 	stack = *help_stack;
-	map = (t_point **)ft_memalloc(sizeof(t_point *) * fdf->height);
+	map = (t_point **)ft_memalloc(sizeof(t_point) * fdf->height);
 	while (i < fdf->height)
 	{
 		map[i] = (t_point *)ft_memalloc(sizeof(t_point) * fdf->width);
@@ -65,6 +65,11 @@ t_point		**init_map(int file_descriptor, t_fdf *fdf)
 	char	*line;
 	t_stack	*stack;
 
+	line = NULL;
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack->z = 0;
+	stack->color = 0;
+	stack->next = NULL;
 	while (get_next_line(file_descriptor, &line) > 0)
 	{
 		if (get_coord(line, &stack, fdf) == -1)
@@ -80,8 +85,8 @@ t_fdf	*init_fdf(int file_descriptor)
 	t_fdf	*fdf;
 
 	fdf = (t_fdf *)ft_memalloc(sizeof(t_fdf));
-	fdf->mlx = mlx_init();
-	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
+	//fdf->mlx = mlx_init();
+	//fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FDF");
 	fdf->height = 0;
 	fdf->width = 0;
 	fdf->map = init_map(file_descriptor, fdf);

@@ -74,6 +74,8 @@ int		check_num_and_color(int z, char *c, int *color)
 	int		i;
 
 	i = 0;
+	if (c[i] == '-')
+	    i++;
 	while (c[i] >= '0' && c[i] <= '9')
 		i++;
 	if (i != count_num(z))

@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 19:48:55 by hlarson           #+#    #+#             */
-/*   Updated: 2018/12/16 16:30:04 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 12:47:59 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	char	**ft_memory(char const *s, char c)
 			k++;
 		i++;
 	}
-	d = (char **)malloc(sizeof(s) * (k));
+	d = (char **)malloc(sizeof(char *) * (k));
 	if (!d)
 		return (NULL);
 	return (d);

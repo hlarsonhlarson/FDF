@@ -6,17 +6,17 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 21:03:53 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 12:42:33 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 # include "lib/libft.h"
-# include "minilibx_macos/mlx.h"
 # include "lib/get_next_line.h"
 # include <fcntl.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct	s_stack
 {

@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:08:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 21:06:51 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 12:50:03 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	add_stack(t_stack **stack, int z, int color)
 {
 	t_stack *tmp;
-
+	
 	tmp = *stack;
 	if (tmp == NULL)
 	{
@@ -23,6 +23,7 @@ static void	add_stack(t_stack **stack, int z, int color)
 		tmp->z = z;
 		tmp->color = color;
 		tmp->next = NULL;
+		*stack = tmp;
 		return ;
 	}
 	while (tmp->next)
@@ -63,9 +64,9 @@ int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
 		if (check_num_and_color(z, tmp[i], &color) == -1)
 			return (-1);
 		add_stack(stack, z, color);
-		ft_strsplit_free(&tmp);
 		i++;
 	}
+	ft_strsplit_free(&tmp);
 	fdf->width = (fdf->width == 0) ? i : fdf->width;
 	return ((i != fdf->width) ? -1 : 0);
 }
