@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 14:45:16 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/12 19:01:56 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,22 @@ void	fill_point(t_point *map, t_stack *stack, int x, int y)
 	map->color = stack->color;
 }
 
-t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
+t_point		*create_map(t_stack **help_stack, t_fdf *fdf)
 {
 	int		i;
 	int		j;
-	t_point		**map;
+	t_point		*map;
 	t_stack		*stack;
 
 	i = 0;
 	stack = *help_stack;
-	map = (t_point **)ft_memalloc(sizeof(t_point) * fdf->height);
+	map = (t_point *)ft_memalloc(sizeof(t_point) * fdf->height * fdf->height);
 	while (i < fdf->height)
 	{
-		map[i] = (t_point *)ft_memalloc(sizeof(t_point) * fdf->width);
 		j = 0;
 		while (j < fdf->width)
 		{
-			fill_point(&(map[i][j]), stack, j, i);
+			fill_point(&(map[i + j]), stack, j, i);
 			stack = stack->next;
 			j++;
 		}
@@ -60,7 +59,7 @@ t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 	return (map);
 }
 
-t_point		**init_map(int file_descriptor, t_fdf *fdf)
+t_point		*init_map(int file_descriptor, t_fdf *fdf)
 {
 	char	*line;
 	t_stack	*stack;
