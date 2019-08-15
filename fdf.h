@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/13 18:04:37 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/15 14:31:50 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_fdf
 	void	*win;
 	void	*img;
 	t_point	**map;
+	char	*data;
 	int		width;
 	int		height;
 	int		bits_per_pixel;
@@ -55,5 +56,7 @@ int				check_num_and_color(int z, char *c, int *color);
 void            *ft_exit_coord(t_stack **stack, char **line, int file_descriptor);
 void            ft_del_stack(t_stack **stack);
 void			ft_make_op(void *win_ptr, t_fdf *fdf);
+void			draw_line(t_point one, t_point two, t_fdf *fdf, int color);
+void			draw(t_point **map, t_fdf *fdf);
 
 #endif

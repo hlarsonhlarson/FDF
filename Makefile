@@ -6,16 +6,16 @@
 #    By: hlarson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/05 19:13:22 by hlarson           #+#    #+#              #
-#    Updated: 2019/08/12 18:56:41 by hlarson          ###   ########.fr        #
+#    Updated: 2019/08/15 14:30:17 by hlarson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 SRCS = main.c init.c help_init.c ft_check_num_and_color.c ft_exit_error.c
-SRCS += ft_make_op.c
+SRCS += ft_make_op.c draw_line.c draw.c
 
-OUT = main.o init.o help_init.o ft_check_num_and_color.o ft_exit_error.o
+OUT = main.o init.o help_init.o ft_check_num_and_color.o ft_exit_error.o ft_make_op.o draw_line.o draw.o
 
 LIB = libft.a
 LIB_PATH = lib/

@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 17:31:40 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/14 17:40:05 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/15 14:36:33 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void			draw_line(t_point one, t_point two, t_fdf *fdf, int color)
 	s.x = (one.x < two.x) ? 1 : -1;
 	d.y = -(ft_abs(two.y - one.y));
 	s.y = (one.y < two.y) ? 1 : -1;
+	printf("%d %d\n", one.x, two.x);
 	err[0] = d.x + d.y;
 	while (1)
 	{

@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 18:56:08 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/15 14:29:55 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		main(int argc, char **argv)
 		if ((fdf = init_fdf(k)) == NULL)
 			return (0);
 		ft_make_op(fdf->win, fdf);
+		draw(fdf->map, fdf);
 		mlx_loop(fdf->mlx);
 	}
 	return (0);
