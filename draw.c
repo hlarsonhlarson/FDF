@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 17:39:48 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 13:02:41 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 14:49:13 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	draw(t_point **map, t_fdf *fdf)
 		x = 0;
 		while (x < fdf->width - 1)
 		{
+			printf("case 1\n");
 			if (x + 1 !=fdf->width - 1)
 				draw_line(map[x][y], map[x + 1][y], fdf, 0xFF000);
+			printf("case 2\n");
 			if (y + 1 != fdf->height - 1)
 				draw_line(map[x][y], map[x][y + 1], fdf, 0xFF000);
 			x++;
