@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/15 14:53:15 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 13:03:10 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,9 @@ t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 		while (j < fdf->width)
 		{
 			fill_point(&(map[i][j]), stack, j, i);
-			printf("%d ", map[i][j].z);
 			stack = stack->next;
 			j++;
 		}
-		printf("\n");
 		i++;
 	}
 	ft_del_stack(help_stack);
