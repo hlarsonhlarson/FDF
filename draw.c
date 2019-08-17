@@ -27,7 +27,7 @@ void	draw(t_point **map, t_fdf *fdf)
 	int		x;
 	int		y;
 
-	y = 0;
+	/*y = 0;
 	while (y < fdf->height - 1)
 	{
 		x = 0;
@@ -37,7 +37,7 @@ void	draw(t_point **map, t_fdf *fdf)
 			x++;
 		}
 		y++;
-	}
+	}*/
 	y = 0;
 	while (y < fdf->height - 1)
 	{
@@ -46,10 +46,10 @@ void	draw(t_point **map, t_fdf *fdf)
 		{
 			printf("case 1\n");
 			if (x + 1 !=fdf->width - 1)
-				draw_line(map[x][y], map[x + 1][y], fdf, 0xFF000);
+				draw_line(map[y][x], map[y][x + 1], fdf, 0xFF000);
 			printf("case 2\n");
 			if (y + 1 != fdf->height - 1)
-				draw_line(map[x][y], map[x][y + 1], fdf, 0xFF000);
+				draw_line(map[y][x], map[y + 1][x], fdf, 0xFF000);
 			x++;
 		}
 		y++;
