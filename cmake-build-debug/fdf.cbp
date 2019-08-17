@@ -113,6 +113,9 @@
 		<Unit filename="/Users/hlarson/fdf2/main.c">
 			<Option target="fdf"/>
 		</Unit>
+		<Unit filename="/Users/hlarson/fdf2/transforming.c">
+			<Option target="fdf"/>
+		</Unit>
 		<Unit filename="/Users/hlarson/fdf2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

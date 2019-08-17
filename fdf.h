@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/15 14:31:50 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 18:12:29 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ typedef struct	s_fdf
 	int		endian;
 }				t_fdf;
 
+typedef	struct	s_camera
+{
+	double	alpha;
+	double	betta;
+	double	gamma;
+	int		x_movement;
+	int		y_movement;
+	int		zoom;
+}
+
 t_fdf			*init_fdf(int file_descriptor);
 int				get_coord(char *line, t_stack **stack, t_fdf *fdf);
 void			ft_strsplit_free(char ***tmp);
@@ -56,7 +66,8 @@ int				check_num_and_color(int z, char *c, int *color);
 void            *ft_exit_coord(t_stack **stack, char **line, int file_descriptor);
 void            ft_del_stack(t_stack **stack);
 void			ft_make_op(void *win_ptr, t_fdf *fdf);
-void			draw_line(t_point one, t_point two, t_fdf *fdf, int color);
+void			draw_line(t_point one, t_point two, t_fdf *fdf);
 void			draw(t_point **map, t_fdf *fdf);
+t_point			transform_point(t_point *point, t_fdf *fdf);
 
 #endif

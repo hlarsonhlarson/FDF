@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:08:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 12:50:03 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 18:14:51 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
 	ft_strsplit_free(&tmp);
 	fdf->width = (fdf->width == 0) ? i : fdf->width;
 	return ((i != fdf->width) ? -1 : 0);
+}
+
+t_camera	*init_camera(t_fdf *fdf)
+{
+	t_camera	*camera;
+
+	camera = (t_camera *)malloc(sizeof(camera));
+	camera->alpha = 0;
+	camera->betta = 0;
+	camera->gamma = 0;
+	camera->x_movement = 0;
+	camera->y_movement = 0;
+	camera->zoom = ;
 }

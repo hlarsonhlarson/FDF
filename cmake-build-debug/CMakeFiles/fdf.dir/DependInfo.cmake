@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/hlarson/fdf2/help_init.c" "/Users/hlarson/fdf2/cmake-build-debug/CMakeFiles/fdf.dir/help_init.c.o"
   "/Users/hlarson/fdf2/init.c" "/Users/hlarson/fdf2/cmake-build-debug/CMakeFiles/fdf.dir/init.c.o"
   "/Users/hlarson/fdf2/main.c" "/Users/hlarson/fdf2/cmake-build-debug/CMakeFiles/fdf.dir/main.c.o"
+  "/Users/hlarson/fdf2/transforming.c" "/Users/hlarson/fdf2/cmake-build-debug/CMakeFiles/fdf.dir/transforming.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

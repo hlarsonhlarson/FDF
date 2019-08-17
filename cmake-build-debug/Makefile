@@ -339,6 +339,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/main.c.s
 .PHONY : main.c.s
 
+transforming.o: transforming.c.o
+
+.PHONY : transforming.o
+
+# target to build an object file
+transforming.c.o:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/transforming.c.o
+.PHONY : transforming.c.o
+
+transforming.i: transforming.c.i
+
+.PHONY : transforming.i
+
+# target to preprocess a source file
+transforming.c.i:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/transforming.c.i
+.PHONY : transforming.c.i
+
+transforming.s: transforming.c.s
+
+.PHONY : transforming.s
+
+# target to generate assembly for a file
+transforming.c.s:
+	$(MAKE) -f CMakeFiles/fdf.dir/build.make CMakeFiles/fdf.dir/transforming.c.s
+.PHONY : transforming.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -372,6 +399,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... transforming.o"
+	@echo "... transforming.i"
+	@echo "... transforming.s"
 .PHONY : help
 
 

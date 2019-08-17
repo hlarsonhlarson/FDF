@@ -49,3 +49,9 @@ CMakeFiles/fdf.dir/main.c.o: ../lib/libft.h
 CMakeFiles/fdf.dir/main.c.o: ../main.c
 CMakeFiles/fdf.dir/main.c.o: ../minilibx_macos/mlx.h
 
+CMakeFiles/fdf.dir/transforming.c.o: ../fdf.h
+CMakeFiles/fdf.dir/transforming.c.o: ../lib/get_next_line.h
+CMakeFiles/fdf.dir/transforming.c.o: ../lib/libft.h
+CMakeFiles/fdf.dir/transforming.c.o: ../minilibx_macos/mlx.h
+CMakeFiles/fdf.dir/transforming.c.o: ../transforming.c
+

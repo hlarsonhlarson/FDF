@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 17:31:40 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 14:48:54 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 17:39:00 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@ static int		ft_abs(int x)
 	if (x < 0)
 		return (-x);
 	return (x);
+}
+
+static int		get_color(t_point d, t_point one, t_point two)
+{
+	int		dx;
+	int		dy;
+	double	percentage;
+
+	if (d.color == two.color)
+		return (two.color);
+	if ((dx = ft_abs(one.x - two.x)) > (dy = ft_abs(two.y - two.x)))
+		percentage = d.x / dx;
+	else
+		percentage = d.y / dy;
+	return ((int)(1 - percentage) * one.color + percentage * two.color);
 }
 
 void			help_draw(int *err, t_point *one, t_point s, t_point d)
@@ -33,13 +48,12 @@ void			help_draw(int *err, t_point *one, t_point s, t_point d)
 	}
 }
 
-void			draw_line(t_point one, t_point two, t_fdf *fdf, int color)
+void			draw_line(t_point one, t_point two, t_fdf *fdf)
 {
 	t_point	d;
 	t_point	s;
 	int		err[2];
 
-	printf("HI\n");
 	d.x = ft_abs(two.x - one.x);
 	s.x = (one.x < two.x) ? 1 : -1;
 	d.y = -(ft_abs(two.y - one.y));
@@ -50,7 +64,7 @@ void			draw_line(t_point one, t_point two, t_fdf *fdf, int color)
 		if ((one.x == two.x && one.y == two.y) ||
 				one.x < 0 || one.y < 0 || one.x > 1920 || one.y > 1080)
 			break ;
-		((int *)(fdf->data))[one.x + 1920 * one.y] = color;
+		((int *)(fdf->data))[one.x + 1920 * one.y] = get_color(d, one, two);
 		err[1] = 2 * err[0];
 		help_draw(err, &one, s, d);
 	}

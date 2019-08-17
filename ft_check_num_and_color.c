@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:46:18 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/11 21:06:48 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/17 17:10:27 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		check_num_and_color(int z, char *c, int *color)
 	if (c[i] == ',')
 		*color = ft_get_color(c, i + 1);
 	else
-		*color = 0;
+		*color = 0x808080;
 	if (*color == -1)
 		return (-1);
 	return (0);

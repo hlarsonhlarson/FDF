@@ -12,6 +12,7 @@ set(SOURCE_FILES draw.c
         ft_make_op.c
         help_init.c
         init.c
-        main.c)
+        main.c
+        transforming.c)
 add_executable(fdf ${SOURCE_FILES}) # compilation
 target_link_libraries(fdf -lft  -lmlx "-framework OpenGL" "-framework AppKit")

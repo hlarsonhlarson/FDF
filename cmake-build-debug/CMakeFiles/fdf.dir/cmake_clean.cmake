@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/fdf.dir/help_init.c.o"
   "CMakeFiles/fdf.dir/init.c.o"
   "CMakeFiles/fdf.dir/main.c.o"
+  "CMakeFiles/fdf.dir/transforming.c.o"
   "fdf.pdb"
   "fdf"
 )
