@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 17:31:40 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 17:39:00 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 17:54:48 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,17 @@ static int		get_color(t_point d, t_point one, t_point two)
 	if (d.color == two.color)
 		return (two.color);
 	if ((dx = ft_abs(one.x - two.x)) > (dy = ft_abs(two.y - two.x)))
+	{
+		printf("HI1\n");
 		percentage = d.x / dx;
+		printf("HI2\n");
+	}
 	else
+	{
+		printf("HI3\n");
 		percentage = d.y / dy;
+		printf("HI4\n");
+	}
 	return ((int)(1 - percentage) * one.color + percentage * two.color);
 }
 
@@ -58,13 +66,15 @@ void			draw_line(t_point one, t_point two, t_fdf *fdf)
 	s.x = (one.x < two.x) ? 1 : -1;
 	d.y = -(ft_abs(two.y - one.y));
 	s.y = (one.y < two.y) ? 1 : -1;
+	d.color = one.color;
 	err[0] = d.x + d.y;
 	while (1)
 	{
 		if ((one.x == two.x && one.y == two.y) ||
 				one.x < 0 || one.y < 0 || one.x > 1920 || one.y > 1080)
 			break ;
-		((int *)(fdf->data))[one.x + 1920 * one.y] = get_color(d, one, two);
+		if (!((one.x + 1920 * one.y) > 1920 * 1080))
+		    ((int *)(fdf->data))[one.x + 1920 * one.y] = get_color(d, one, two);
 		err[1] = 2 * err[0];
 		help_draw(err, &one, s, d);
 	}

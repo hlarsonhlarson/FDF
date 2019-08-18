@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:08:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 18:14:51 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 17:22:44 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,16 @@ t_camera	*init_camera(t_fdf *fdf)
 {
 	t_camera	*camera;
 
-	camera = (t_camera *)malloc(sizeof(camera));
-	camera->alpha = 0;
-	camera->betta = 0;
-	camera->gamma = 0;
+	camera = (t_camera *)malloc(sizeof(t_camera));
+	camera->alpha = 0.0;
+	camera->betta = 0.0;
+	camera->gamma = 0.0;
 	camera->x_movement = 0;
 	camera->y_movement = 0;
-	camera->zoom = ;
+	if (960 / fdf->width > 540 / fdf->height)
+		camera->zoom = 540 / fdf->height;
+	else
+		camera->zoom = 960 / fdf->width;
+	camera->z_scale = 1;
+	return (camera);
 }

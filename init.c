@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 18:13:10 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 17:17:18 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,10 @@ t_fdf	*init_fdf(int file_descriptor)
 	fdf->data = mlx_get_data_addr(fdf->img, &(fdf->bits_per_pixel),
 			&(fdf->size_line), &(fdf->endian));
 	fdf->camera = init_camera(fdf);
+	fdf->mouse = (t_mouse *)malloc(sizeof(t_mouse));
+	fdf->mouse->x = 0;
+	fdf->mouse->y = 0;
+	fdf->mouse->pressed = 0;
+	fdf->projection = 1;
 	return (fdf);
 }

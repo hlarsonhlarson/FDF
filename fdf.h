@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 18:12:29 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 17:42:04 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,6 @@ typedef struct	s_point
 	int		color;
 }				t_point;
 
-typedef struct	s_fdf
-{
-	void	*mlx;
-	void	*win;
-	void	*img;
-	t_point	**map;
-	char	*data;
-	int		width;
-	int		height;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-}				t_fdf;
-
 typedef	struct	s_camera
 {
 	double	alpha;
@@ -57,7 +43,32 @@ typedef	struct	s_camera
 	int		x_movement;
 	int		y_movement;
 	int		zoom;
-}
+	int		z_scale;
+}				t_camera;
+
+typedef struct	s_mouse
+{
+	int		x;
+	int		y;
+	int		pressed;
+}				t_mouse;
+
+typedef struct	s_fdf
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	t_point	**map;
+	t_camera	*camera;
+	char	*data;
+	int		width;
+	int		height;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	int		projection;
+	t_mouse	*mouse;
+}				t_fdf;
 
 t_fdf			*init_fdf(int file_descriptor);
 int				get_coord(char *line, t_stack **stack, t_fdf *fdf);
@@ -69,5 +80,6 @@ void			ft_make_op(void *win_ptr, t_fdf *fdf);
 void			draw_line(t_point one, t_point two, t_fdf *fdf);
 void			draw(t_point **map, t_fdf *fdf);
 t_point			transform_point(t_point *point, t_fdf *fdf);
+t_camera		*init_camera(t_fdf *fdf);
 
 #endif

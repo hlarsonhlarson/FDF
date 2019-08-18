@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 13:03:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 18:11:25 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 17:35:18 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	rotation_x(t_point *point, double teta)
 
 	previous.z = point->z;
 	previous.y = point->y;
-	point->y = (previous.y) * cos(teta) + previous.z * sin(teta);
-	point->y = -(previous.y) * sin(teta) + previous.z * cos(teta);
+	point->y = (int)((previous.y) * cos(teta) + previous.z * sin(teta));
+	point->y = (int)(-(previous.y) * sin(teta) + previous.z * cos(teta));
 }
 
 void	rotation_y(t_point *point, double teta)
@@ -47,8 +47,8 @@ void	rotation_y(t_point *point, double teta)
 
 	previous.z = point->z;
 	previous.x = point->x;
-	point->x = (previous.x) * cos(teta) + previous.z * sin(teta);
-	point->z = -(previous.x) * sin(teta) + previous.z * cos(teta);
+	point->x = (int)((previous.x) * cos(teta) + previous.z * sin(teta));
+	point->z = (int)(-(previous.x) * sin(teta) + previous.z * cos(teta));
 }
 
 void	rotation_z(t_point *point, double teta)
@@ -57,8 +57,8 @@ void	rotation_z(t_point *point, double teta)
 
 	previous.y = point->y;
 	previous.x = point->x;
-	point->x = (previous.x) * cos(teta) - previous.y * sin(teta);
-	point->y = (previous.x) * sin(teta) + previous.y * cos(teta);
+	point->x = (int)((previous.x) * cos(teta) - previous.y * sin(teta));
+	point->y = (int)((previous.x) * sin(teta) + previous.y * cos(teta));
 }
 
 void	isometric(t_point *point)
@@ -71,18 +71,22 @@ void	isometric(t_point *point)
 	point->y = -point->z + (previous.x + previous.y) * sin(0.523599);
 }
 
-t_point		transform_point(t_point *point, t_fdf *fdf, t_camera *camera)
+t_point		transform_point(t_point *point, t_fdf *fdf)
 {
 	t_point	new_point;
 
-	new_point.x = point->x * (960 / fdf->width);
-	new_point.x -= fdf->width * ((960 / fdf->width) / 2);
-	new_point.y = point->y * (540 / fdf->height);
-	new_point.y -= fdf->height * ((540 / fdf->height) / 2);
-	new_point.z = point->z * (540 / fdf->height / 2);
-    isometric(&new_point);
-    new_point.x += 960;
-	new_point.y += 540;
+	new_point.x = point->x * fdf->camera->zoom;
+	new_point.x -= (fdf->width * fdf->camera->zoom) / 2;
+	new_point.y = point->y * fdf->camera->zoom;
+	new_point.y -= (fdf->height * fdf->camera->zoom) / 2;
+	new_point.z = point->z * (fdf->camera->zoom / fdf->camera->z_scale);
+	rotation_x(&new_point, fdf->camera->alpha);
+	rotation_y(&new_point, fdf->camera->betta);
+	rotation_z(&new_point, fdf->camera->gamma);
+	if (fdf->projection == 1)
+    	isometric(&new_point);
+    new_point.x += 960 + fdf->camera->x_movement;
+	new_point.y += 800 + fdf->camera->y_movement;
 	new_point.color = point->color;
 	return (new_point);
 }
