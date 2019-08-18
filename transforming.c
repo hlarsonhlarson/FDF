@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 13:03:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 17:35:18 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 19:51:11 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rotation_x(t_point *point, double teta)
 	previous.z = point->z;
 	previous.y = point->y;
 	point->y = (int)((previous.y) * cos(teta) + previous.z * sin(teta));
-	point->y = (int)(-(previous.y) * sin(teta) + previous.z * cos(teta));
+	point->z = (int)(-(previous.y) * sin(teta) + previous.z * cos(teta));
 }
 
 void	rotation_y(t_point *point, double teta)

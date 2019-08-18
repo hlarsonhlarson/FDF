@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 12:06:01 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 18:52:00 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/18 19:51:28 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		main(int argc, char **argv)
 		fdf->projection = 1;
 		ft_make_op(fdf->win, fdf);
 		draw(fdf->map, fdf);
-		printf("%f\n", cos(0.0));
 		mlx_loop(fdf->mlx);
 	}
 	return (0);
