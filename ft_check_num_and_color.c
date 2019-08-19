@@ -6,13 +6,13 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:46:18 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/17 17:10:27 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:57:34 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	count_num(int k)
+static int		count_num(int k)
 {
 	int	i;
 	int	sign;
@@ -67,15 +67,15 @@ static int		ft_get_color(char *c, int i)
 		i++;
 	}
 	return (color);
-}	
+}
 
-int		check_num_and_color(int z, char *c, int *color)
+int				check_num_and_color(int z, char *c, int *color)
 {
 	int		i;
 
 	i = 0;
 	if (c[i] == '-')
-	    i++;
+		i++;
 	while (c[i] >= '0' && c[i] <= '9')
 		i++;
 	if (i != count_num(z))

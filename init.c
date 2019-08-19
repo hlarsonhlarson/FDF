@@ -6,13 +6,13 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 11:32:30 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 13:00:48 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_del_stack(t_stack **stack)
+void		ft_del_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*swap;
@@ -20,14 +20,14 @@ void	ft_del_stack(t_stack **stack)
 	tmp = *stack;
 	while (tmp)
 	{
-	    swap = tmp->next;
+		swap = tmp->next;
 		free(tmp);
 		tmp = swap;
 	}
 	free(tmp);
 }
 
-void	fill_point(t_point *map, t_stack *stack, int x, int y)
+void		fill_point(t_point *map, t_stack *stack, int x, int y)
 {
 	map->z = stack->z;
 	map->x = x;
@@ -37,8 +37,8 @@ void	fill_point(t_point *map, t_stack *stack, int x, int y)
 
 t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 	t_point		**map;
 	t_stack		*stack;
 	t_stack		*head;
@@ -81,7 +81,7 @@ t_point		**init_map(int file_descriptor, t_fdf *fdf)
 	return (create_map(&stack, fdf));
 }
 
-t_fdf	*init_fdf(int file_descriptor)
+t_fdf		*init_fdf(int file_descriptor)
 {
 	t_fdf	*fdf;
 
@@ -92,8 +92,8 @@ t_fdf	*init_fdf(int file_descriptor)
 	fdf->width = 0;
 	if ((fdf->map = init_map(file_descriptor, fdf)) == NULL)
 	{
-	    free(fdf);
-	    return (NULL);
+		free(fdf);
+		return (NULL);
 	}
 	fdf->img = mlx_new_image(fdf->mlx, 1920, 1080);
 	fdf->data = mlx_get_data_addr(fdf->img, &(fdf->bits_per_pixel),

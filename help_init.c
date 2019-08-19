@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:08:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 12:33:42 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:58:53 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	add_stack(t_stack **stack, int z, int color)
 	tmp->next->next = NULL;
 }
 
-void	ft_strsplit_free(char ***tmp)
+void		ft_strsplit_free(char ***tmp)
 {
 	size_t	i;
 	char	**c;
@@ -49,13 +49,13 @@ void	ft_strsplit_free(char ***tmp)
 	free(c);
 }
 
-static int  error_exit(char **tmp)
+static int	error_exit(char **tmp)
 {
-    ft_strsplit_free(&tmp);
-    return (-1);
+	ft_strsplit_free(&tmp);
+	return (-1);
 }
 
-int	get_coord(char *line, t_stack **stack, t_fdf *fdf)
+int			get_coord(char *line, t_stack **stack, t_fdf *fdf)
 {
 	char	**tmp;
 	int		z;

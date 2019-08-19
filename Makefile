@@ -6,14 +6,15 @@
 #    By: hlarson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/05 19:13:22 by hlarson           #+#    #+#              #
-#    Updated: 2019/08/17 15:08:13 by hlarson          ###   ########.fr        #
+#    Updated: 2019/08/19 13:08:50 by hlarson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 SRCS = main.c init.c help_init.c ft_check_num_and_color.c ft_exit_error.c
-SRCS += ft_make_op.c draw_line.c draw.c transforming.c
+SRCS += ft_make_op.c draw_line.c draw.c transforming.c key_control.c
+SRCS += mouse_control.c
 
 OUT = main.o init.o help_init.o ft_check_num_and_color.o ft_exit_error.o ft_make_op.o draw_line.o draw.o transformin.o
 

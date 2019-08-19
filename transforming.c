@@ -6,32 +6,13 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 13:03:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 11:53:25 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 13:02:06 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-/*
-typedef struct	s_mat
-{
-	float	fNear = 0.1;
-	float	fFar = 1000.0;
-	float	fFov = 90.0;
-	float	fAspectRatio = (1920.0 / 1080.0);
-	float	fFovRad = 1.0 / tan(fFov * 0.5f / 180.0f * 3.14159f);
-}				t_mat;
 
-typedef struct	s_proj
-{
-	float		zero_zero = mat->fAspectRatio * mat->fFovRad;
-	float		one_one = mat->fFovRad;
-	float		two_two = mat->fFar / (mat->fFar - mat->fNear);
-	float		three_two = (-mat->fFar * fNear) / (fFar - fNear);
-	float		two_three = 1.0f;
-	float		three_three = 0.0f;
-}*/
-
-void	rotation_x(t_point *point, double teta)
+void		rotation_x(t_point *point, double teta)
 {
 	t_point		previous;
 
@@ -41,7 +22,7 @@ void	rotation_x(t_point *point, double teta)
 	point->z = (int)(-(previous.y) * sin(teta) + previous.z * cos(teta));
 }
 
-void	rotation_y(t_point *point, double teta)
+void		rotation_y(t_point *point, double teta)
 {
 	t_point		previous;
 
@@ -51,7 +32,7 @@ void	rotation_y(t_point *point, double teta)
 	point->z = (int)(-(previous.x) * sin(teta) + previous.z * cos(teta));
 }
 
-void	rotation_z(t_point *point, double teta)
+void		rotation_z(t_point *point, double teta)
 {
 	t_point		previous;
 
@@ -61,7 +42,7 @@ void	rotation_z(t_point *point, double teta)
 	point->y = (int)((previous.x) * sin(teta) + previous.y * cos(teta));
 }
 
-void	isometric(t_point *point)
+void		isometric(t_point *point)
 {
 	t_point	previous;
 
@@ -84,8 +65,8 @@ t_point		transform_point(t_point *point, t_fdf *fdf)
 	rotation_y(&new_point, fdf->camera->betta);
 	rotation_z(&new_point, fdf->camera->gamma);
 	if (fdf->projection == 1)
-    	isometric(&new_point);
-    new_point.x += 960 + fdf->camera->x_movement;
+		isometric(&new_point);
+	new_point.x += 960 + fdf->camera->x_movement;
 	new_point.y += 800 + fdf->camera->y_movement;
 	new_point.color = point->color;
 	if (fdf->color == 18)

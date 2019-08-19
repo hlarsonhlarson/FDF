@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 12:38:46 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 13:11:16 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,14 @@ void			draw_line(t_point one, t_point two, t_fdf *fdf);
 void			draw(t_point **map, t_fdf *fdf);
 t_point			transform_point(t_point *point, t_fdf *fdf);
 t_camera		*init_camera(t_fdf *fdf);
+int     mouse_pressed(int button, int x, int y, void *param);
+int     mouse_released(int button, int x, int y, void *param);
+int     mouse_movement(int x, int y, void *param);
+void    movement(int keycode, t_fdf *fdf);
+void    zoom(int keycode, t_fdf *fdf);
+void    z_scale(int keycode, t_fdf *fdf);
+void    iso(t_fdf *fdf);
+void    parallel(t_fdf *fdf);
+void    set_default(t_camera *camera);
 
 #endif
