@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 13:03:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 19:51:11 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 11:35:19 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ t_point		transform_point(t_point *point, t_fdf *fdf)
 	t_point	new_point;
 
 	new_point.x = point->x * fdf->camera->zoom;
-	new_point.x -= (fdf->width * fdf->camera->zoom) / 2;
+	new_point.x = new_point.x - (fdf->width * fdf->camera->zoom) / 2;
 	new_point.y = point->y * fdf->camera->zoom;
-	new_point.y -= (fdf->height * fdf->camera->zoom) / 2;
+	new_point.y = new_point.y - (fdf->height * fdf->camera->zoom) / 2;
 	new_point.z = point->z * (fdf->camera->zoom / fdf->camera->z_scale);
 	rotation_x(&new_point, fdf->camera->alpha);
 	rotation_y(&new_point, fdf->camera->betta);

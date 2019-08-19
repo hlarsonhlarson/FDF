@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 16:00:16 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 17:17:18 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 11:32:30 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_del_stack(t_stack **stack)
 		free(tmp);
 		tmp = swap;
 	}
+	free(tmp);
 }
 
 void	fill_point(t_point *map, t_stack *stack, int x, int y)
@@ -40,9 +41,11 @@ t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 	int		j;
 	t_point		**map;
 	t_stack		*stack;
+	t_stack		*head;
 
 	i = 0;
 	stack = *help_stack;
+	head = stack;
 	map = (t_point **)malloc(sizeof(t_point) * fdf->height * fdf->height);
 	while (i < fdf->height)
 	{
@@ -56,7 +59,7 @@ t_point		**create_map(t_stack **help_stack, t_fdf *fdf)
 		}
 		i++;
 	}
-	ft_del_stack(help_stack);
+	ft_del_stack(&head);
 	return (map);
 }
 

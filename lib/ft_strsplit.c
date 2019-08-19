@@ -6,102 +6,72 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 19:48:55 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/12 12:47:59 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 11:43:02 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static	char	**ft_memory(char const *s, char c)
+static	int		ft_count_words(const char *str, char c)
 {
-	size_t		i;
-	size_t		k;
-	char		**d;
+	int	word;
+	int	i;
 
 	i = 0;
+	word = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		if (str[i] == c && str[i + 1] != c)
+			word++;
+		i++;
+	}
+	if (str[0] != '\0')
+		word++;
+	return (word);
+}
+
+static	char	*ft_word(const char *str, char c, int *i)
+{
+	char	*s;
+	int		k;
+
+	if (!(s = (char *)malloc(sizeof(s) * (ft_strlen(str)))))
+		return (NULL);
 	k = 0;
-	while (s[i])
+	while (str[*i] != c && str[*i])
 	{
-		if (s[0] != c)
-			k++;
-		if ((s[i] == c) && (s[i + 1] != c))
-			k++;
-		i++;
+		s[k] = str[*i];
+		k++;
+		*i += 1;
 	}
-	d = (char **)malloc(sizeof(char *) * (k));
-	if (!d)
-		return (NULL);
-	return (d);
+	s[k] = '\0';
+	while (str[*i] == c && str[*i])
+		*i += 1;
+	return (s);
 }
 
-static char		**ft_memory1(char const *s, char c, char **d)
+char			**ft_strsplit(const char *str, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	k;
-
-	if (!d)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		k = 0;
-		if (s[i] != c)
-		{
-			while ((s[i] != c) && (s[i] != '\0'))
-			{
-				k++;
-				i++;
-			}
-			d[j] = ft_strnew(k);
-			j++;
-		}
-		i++;
-	}
-	d[j] = NULL;
-	return (d);
-}
-
-static char		**ft_strsplit1(char const *s, char c, char **d)
-{
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	int		i;
+	int		j;
+	int		wrd;
+	char	**s;
 
 	i = 0;
 	j = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-		{
-			k = 0;
-			while ((s[i] != c) && s[i])
-			{
-				d[j][k] = s[i];
-				k++;
-				i++;
-			}
-			j++;
-		}
-		if (s[i] == '\0')
-			break ;
+	wrd = ft_count_words(str, c);
+	if (!(s = (char **)malloc(sizeof(s) * (ft_count_words(str, c) + 2))))
+		return (NULL);
+	while (str[i] == c && str[i])
 		i++;
+	while (j < wrd && str[i])
+	{
+		s[j] = ft_word(str, c, &i);
+		j++;
 	}
-	d[j] = NULL;
-	return (d);
-}
-
-char			**ft_strsplit(char const *s, char c)
-{
-	char	**d;
-
-	if (!s)
-		return (NULL);
-	d = ft_memory1(s, c, ft_memory(s, c));
-	if (!d)
-		return (NULL);
-	d = ft_strsplit1(s, c, d);
-	return (d);
+	s[j] = NULL;
+	return (s);
 }
