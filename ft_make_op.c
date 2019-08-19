@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:51:06 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 17:58:53 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:01:35 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,38 @@ int		mouse_movement(int x, int y, void *param)
 	return (0);
 }	
 
+void	movement(int keycode, t_fdf *fdf)
+{
+	if (keycode == 123)
+		fdf->camera->x_movement -= 10;
+	else if (keycode == 124)
+		fdf->camera->x_movement += 10;
+	else if (keycode == 125)
+		fdf->camera->y_movement += 10;
+	else if (keycode == 126)
+		fdf->camera->y_movement -= 10;
+	draw(fdf->map, fdf);
+}
+
 int		key_pressed(int keycode, void *param)
 {
-	param = NULL;
+	t_fdf	*fdf;
+
 	if (keycode == 7 || keycode == 53)
 		exit(0);
+	fdf = (t_fdf *)param;
+	if (keycode == 18 || keycode == 19)
+	{
+		fdf->color = keycode;
+		draw(fdf->map, fdf);
+	}
+	else if (keycode == 20)
+	{
+		fdf->color = 0;
+		draw(fdf->map, fdf);
+	}
+	else if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
+		movement(keycode, fdf);
 	return (0);
 }
 

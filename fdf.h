@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 17:42:04 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 11:52:00 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct	s_fdf
 	int		size_line;
 	int		endian;
 	int		projection;
+	int		color;
 	t_mouse	*mouse;
 }				t_fdf;
 

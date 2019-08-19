@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/17 13:03:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 11:35:19 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 11:53:25 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ t_point		transform_point(t_point *point, t_fdf *fdf)
     new_point.x += 960 + fdf->camera->x_movement;
 	new_point.y += 800 + fdf->camera->y_movement;
 	new_point.color = point->color;
+	if (fdf->color == 18)
+		new_point.color = 0xFF00;
+	else if (fdf->color == 19)
+		new_point.color = 0xFF0000;
 	return (new_point);
 }
