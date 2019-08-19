@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 13:11:16 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 13:22:48 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,41 +56,42 @@ typedef struct	s_mouse
 
 typedef struct	s_fdf
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	t_point	**map;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	t_point		**map;
 	t_camera	*camera;
-	char	*data;
-	int		width;
-	int		height;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	int		projection;
-	int		color;
-	t_mouse	*mouse;
+	char		*data;
+	int			width;
+	int			height;
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
+	int			projection;
+	int			color;
+	t_mouse		*mouse;
 }				t_fdf;
 
 t_fdf			*init_fdf(int file_descriptor);
 int				get_coord(char *line, t_stack **stack, t_fdf *fdf);
 void			ft_strsplit_free(char ***tmp);
 int				check_num_and_color(int z, char *c, int *color);
-void            *ft_exit_coord(t_stack **stack, char **line, int file_descriptor);
-void            ft_del_stack(t_stack **stack);
+void			*ft_exit_coord(t_stack **stack,
+				char **line, int file_descriptor);
+void			ft_del_stack(t_stack **stack);
 void			ft_make_op(void *win_ptr, t_fdf *fdf);
 void			draw_line(t_point one, t_point two, t_fdf *fdf);
 void			draw(t_point **map, t_fdf *fdf);
 t_point			transform_point(t_point *point, t_fdf *fdf);
 t_camera		*init_camera(t_fdf *fdf);
-int     mouse_pressed(int button, int x, int y, void *param);
-int     mouse_released(int button, int x, int y, void *param);
-int     mouse_movement(int x, int y, void *param);
-void    movement(int keycode, t_fdf *fdf);
-void    zoom(int keycode, t_fdf *fdf);
-void    z_scale(int keycode, t_fdf *fdf);
-void    iso(t_fdf *fdf);
-void    parallel(t_fdf *fdf);
-void    set_default(t_camera *camera);
+int				mouse_pressed(int button, int x, int y, void *param);
+int				mouse_released(int button, int x, int y, void *param);
+int				mouse_movement(int x, int y, void *param);
+void			movement(int keycode, t_fdf *fdf);
+void			zoom(int keycode, t_fdf *fdf);
+void			z_scale(int keycode, t_fdf *fdf);
+void			iso(t_fdf *fdf);
+void			parallel(t_fdf *fdf);
+void			set_default(t_camera *camera);
 
 #endif
