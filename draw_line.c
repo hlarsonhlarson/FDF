@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 17:31:40 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 12:13:39 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:24:51 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void			draw_line(t_point one, t_point two, t_fdf *fdf)
 	while (1)
 	{
 				//one.x < 0 || one.y < 0 || one.x > 1920 || one.y > 1080)
-		if ((one.x == two.x && one.y == two.y))//||
+		if ((one.x == two.x && one.y == two.y))
 			break ;
-		if (!((one.x + 1920 * one.y) > 1920 * 1080))
+		if (!((one.x + 1920 * one.y) > 1920 * 1080) && one.x > 0 && one.y > 0 && one.x < 1920 && one.y < 1080)
 		    ((int *)(fdf->data))[one.x + 1920 * one.y] = get_color(d, one, two);
 		err[1] = 2 * err[0];
 		help_draw(err, &one, s, d);

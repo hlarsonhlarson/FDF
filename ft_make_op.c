@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 18:51:06 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 12:01:35 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:36:06 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,19 @@ void	movement(int keycode, t_fdf *fdf)
 	draw(fdf->map, fdf);
 }
 
+void	zoom(int keycode, t_fdf *fdf)
+{
+	if (keycode == 78)
+		fdf->camera->zoom -= 0.1;
+	else if (keycode == 69)
+		fdf->camera->zoom += 0.1;
+	if (fdf->camera->zoom > 10 * fdf->camera->zoom_const)
+		fdf->camera->zoom = 10 * fdf->camera->zoom_const;
+	else if (fdf->camera->zoom < 0.1)
+		fdf->camera->zoom = 0.1;
+	draw(fdf->map, fdf);
+}
+
 int		key_pressed(int keycode, void *param)
 {
 	t_fdf	*fdf;
@@ -92,6 +105,8 @@ int		key_pressed(int keycode, void *param)
 	}
 	else if (keycode == 123 || keycode == 124 || keycode == 125 || keycode == 126)
 		movement(keycode, fdf);
+	else if (keycode == 78 || keycode == 69)
+		zoom(keycode, fdf);
 	return (0);
 }
 

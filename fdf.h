@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 15:54:59 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/19 11:52:00 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:38:46 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ typedef	struct	s_camera
 	double	gamma;
 	int		x_movement;
 	int		y_movement;
-	int		zoom;
-	int		z_scale;
+	double	zoom;
+	double	zoom_const;
+	double	z_scale;
 }				t_camera;
 
 typedef struct	s_mouse

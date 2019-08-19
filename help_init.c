@@ -6,7 +6,7 @@
 /*   By: hlarson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 19:08:47 by hlarson           #+#    #+#             */
-/*   Updated: 2019/08/18 17:22:44 by hlarson          ###   ########.fr       */
+/*   Updated: 2019/08/19 12:33:42 by hlarson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ t_camera	*init_camera(t_fdf *fdf)
 		camera->zoom = 540 / fdf->height;
 	else
 		camera->zoom = 960 / fdf->width;
+	camera->zoom_const = camera->zoom;
 	camera->z_scale = 1;
 	return (camera);
 }
